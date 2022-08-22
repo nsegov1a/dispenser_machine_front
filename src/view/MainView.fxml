@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="fondo-general" stylesheets="@../style/globales.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+   <center>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="usuariosButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#seeUsers" prefWidth="150.0" styleClass="boton-general" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
+               <graphic>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../sources/PngItem_1055419.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Usuarios" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="transaccionesButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#seeTransactions" prefWidth="150.0" styleClass="boton-general" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
+               <graphic>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../sources/PngItem_1111058.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Transacciones" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button fx:id="productosButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#seeProducts" prefWidth="150.0" styleClass="boton-general" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
+               <graphic>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../sources/PngItem_6793765.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Productos">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="50.0" top="50.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </center>
+   <bottom>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="toolbar-general" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefWidth="100.0" styleClass="boton-general" text="Cerrar Sesión" />
+            <Button fx:id="shutdownButton" mnemonicParsing="false" onAction="#shutdown" prefWidth="100.0" styleClass="boton-general" text="Apagar" />
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset" prefWidth="100.0" styleClass="boton-general" text="Resetear" />
+        </items>
+      </ToolBar>
+   </bottom>
+   <top>
+      <Label styleClass="label-general" text="PANEL DE CONTROL" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="30.0" />
+         </font>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </Label>
+   </top>
+</BorderPane>

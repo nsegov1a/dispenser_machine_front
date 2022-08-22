@@ -1,0 +1,24 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.fondo-general {
+    -fx-background-color:  linear-gradient(from 25% 25% to 100% 100%, #090979, #00D4FF);
+}
+
+.label-general {
+    -fx-text-fill: #f1f1f1;
+}
+
+.boton-general {
+    -fx-text-fill: #575757;
+    -fx-background-color:  linear-gradient(to bottom, #dbdbdb, #ffffff);
+}
+
+.toolbar-general {
+    -fx-background-color: linear-gradient(to right, #383838, #ffffff);
+}
+
+.grid-general Line {
+    -fx-stroke   : #f1f1f1;
+}
