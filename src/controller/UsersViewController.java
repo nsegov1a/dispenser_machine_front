@@ -135,8 +135,8 @@ public class UsersViewController implements Initializable {
             ButtonType.NO);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
-            SSHSession.issueCommand("sudo sqlite3 /db_files/dispenser.db 'delete from Usuario where " + 
-            "espolID = " + selectedEstudiante.getEspolID() + ";'");
+            SSHSession.issueCommand("sudo sqlite3 /db_files/dispenser.db \"delete from Usuario where " + 
+            "id = '" + selectedEstudiante.getId() + "';\"");
             refresh(event);
         }
     }
