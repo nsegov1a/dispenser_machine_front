@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\nicos\\Documents\\Java Libs\\JSch Java Lib\\jsch-0.1.55.jar"
+    ]
+}

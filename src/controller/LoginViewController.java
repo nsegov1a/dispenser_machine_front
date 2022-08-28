@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.SSHSession;
 
-public class LoginController implements Initializable {
+public class LoginViewController implements Initializable {
 
     @FXML
     private Button loginBoton;
@@ -37,7 +37,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void login(ActionEvent event) {
+    private void login(ActionEvent event) throws InterruptedException, IOException {
         String username = userTextField.getText();
         String password = passTextField.getText();
         String ip = ipTextField.getText();
@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
             switch (tipo) {
                 case "UnknownHostKey":
                     addKnownHost(ip);
-                    loginBoton.setText("Intenta de nuevo");
+                    loginBoton.setText("Presiona de nuevo");
                     break;
                 case "Auth fail":
                     showIncorrectPassword();
@@ -78,25 +78,33 @@ public class LoginController implements Initializable {
         actual.close();
     }
     
-    private static void showIncorrectPassword() {
+    private void showIncorrectPassword() {
         Alert alert = new Alert(AlertType.ERROR, "Autenticación fallida");
         alert.showAndWait();
     }
     
-    private static void addKnownHost(String ip) {
-        try {
-            System.out.println();
-            Process p = new ProcessBuilder(
-                "/bin/sh",
-                "-c",
-                "ssh-keyscan -t rsa " + ip +" >> ~/.ssh/known_hosts").start();
-            p.waitFor();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+    private void addKnownHost(String ip) throws InterruptedException, IOException {
+        String sist = System.getProperty("os.name").split(" ")[0];
+        String tipoShell;
+        String switchC;
+        String knownHostsDir;
+        if (sist.split(" ")[0].equals("Windows")) {
+            tipoShell = "CMD";
+            switchC = "/c";
+            knownHostsDir = "%USERPROFILE%/.ssh/known_hosts";
+        } else {
+            tipoShell = "/bin/sh";
+            switchC = "-c";
+            knownHostsDir = "~/.ssh/known_hosts";
         }
+        Process p = new ProcessBuilder(
+            tipoShell,
+            switchC,
+            "ssh-keyscan -t rsa " + ip +" >> " + knownHostsDir).start();
+        p.waitFor();
     }
     
-    private static void showTimeoutError() {
+    private void showTimeoutError() {
         Alert alert = new Alert(AlertType.ERROR, "Tiempo de espera agotado\nRevise la IP de la Raspberry");
         alert.showAndWait();
     }

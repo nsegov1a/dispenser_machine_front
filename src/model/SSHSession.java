@@ -58,27 +58,7 @@ public class SSHSession {
         }
         return instancia;
     }
-    
-    public String getHostIP() {
-        return hostIP;
-    }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-    
-    public static boolean isConnected() {
-        return jschSession.isConnected();
-    }
-    
-    public static boolean isInitialized() {
-        return instancia != null;
-    }
-    
     public static String issueCommand(String command) throws IOException, JSchException, InterruptedException {
         String retorno = "";
         channelExec = (ChannelExec) jschSession.openChannel("exec");
@@ -101,6 +81,26 @@ public class SSHSession {
         }
         channelExec.disconnect();
         return retorno;
+    }
+    
+    public String getHostIP() {
+        return hostIP;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    
+    public static boolean isConnected() {
+        return jschSession.isConnected();
+    }
+    
+    public static boolean isInitialized() {
+        return instancia != null;
     }
     
     public static void close() {
